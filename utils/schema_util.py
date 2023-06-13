@@ -7,6 +7,7 @@ from jsonschema.validators import validate
 
 
 class SchemaUtil:
+    # 安装：pip install genson
     @classmethod
     def generate_jsonschema(cls, obj):
         # 实例化jsonschem
@@ -22,6 +23,7 @@ class SchemaUtil:
         with open("jsonschema.json", "w") as file:
             json.dump(jsonschema, file)
 
+    # 安装：pip install jsonschema
     @classmethod
     def schema_validate(cls, obj, schema):
         '''
