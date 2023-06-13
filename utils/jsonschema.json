@@ -1,0 +1,127 @@
+{
+  "$schema": "http://json-schema.org/schema#",
+  "type": "object",
+  "properties": {
+    "errno": {
+      "type": "integer"
+    },
+    "data": {
+      "type": "object",
+      "properties": {
+        "total": {
+          "type": "integer"
+        },
+        "pages": {
+          "type": "integer"
+        },
+        "limit": {
+          "type": "integer"
+        },
+        "page": {
+          "type": "integer"
+        },
+        "list": {
+          "type": "array",
+          "items": {
+            "type": "object",
+            "properties": {
+              "id": {
+                "type": "integer"
+              },
+              "goodsSn": {
+                "type": "string"
+              },
+              "name": {
+                "type": "string"
+              },
+              "categoryId": {
+                "type": "integer"
+              },
+              "brandId": {
+                "type": "integer"
+              },
+              "gallery": {
+                "type": "array"
+              },
+              "keywords": {
+                "type": "string"
+              },
+              "brief": {
+                "type": "string"
+              },
+              "isOnSale": {
+                "type": "boolean"
+              },
+              "sortOrder": {
+                "type": "integer"
+              },
+              "picUrl": {
+                "type": "string"
+              },
+              "isNew": {
+                "type": "boolean"
+              },
+              "isHot": {
+                "type": "boolean"
+              },
+              "unit": {
+                "type": "string"
+              },
+              "counterPrice": {
+                "type": "number"
+              },
+              "retailPrice": {
+                "type": "number"
+              },
+              "addTime": {
+                "type": "string"
+              },
+              "updateTime": {
+                "type": "string"
+              },
+              "deleted": {
+                "type": "boolean"
+              }
+            },
+            "required": [
+              "addTime",
+              "brandId",
+              "brief",
+              "categoryId",
+              "counterPrice",
+              "deleted",
+              "gallery",
+              "goodsSn",
+              "id",
+              "isHot",
+              "isNew",
+              "isOnSale",
+              "keywords",
+              "name",
+              "picUrl",
+              "retailPrice",
+              "sortOrder",
+              "unit",
+              "updateTime"
+            ]
+          }
+        }
+      },
+      "required": [
+        "limit",
+        "list",
+        "page",
+        "pages",
+        "total"
+      ]
+    },
+    "errmsg": {
+      "type": "string"
+    }
+  },
+  "required": [
+    "data",
+    "errmsg",
+    "errno"
+  ]
+}
