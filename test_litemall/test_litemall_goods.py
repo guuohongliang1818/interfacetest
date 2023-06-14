@@ -3,13 +3,15 @@
 import jsonpath
 import requests
 
+from utils.schema_util import SchemaUtil
+
 
 class TestLitemallGoods:
     _url_token = "https://litemall.hogwarts.ceshiren.com/admin/auth/login"
     _url_add = "https://litemall.hogwarts.ceshiren.com/admin/goods/create"
     _url_list = "https://litemall.hogwarts.ceshiren.com/admin/goods/list"
     _url_delete = "https://litemall.hogwarts.ceshiren.com/admin/goods/delete"
-    _good_name = "Hogwarts_ghl_20230613"
+    _good_name = "Hogwarts_ghl_20230614"
 
     # 获取token
     def setup_class(self):
@@ -65,6 +67,7 @@ class TestLitemallGoods:
         print(r.text)
         assert r.json().get("errmsg") == "成功"
         assert jsonpath.jsonpath(r.json(), "$..name")[0] == self._good_name
+        assert SchemaUtil.schema_validate_file("jsonschema.json", r.json())
 
     def test_delete(self):
         r = requests.post(self._url_delete,

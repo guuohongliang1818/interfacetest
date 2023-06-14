@@ -1,6 +1,8 @@
 # 姓名：郭宏亮
 # 时间：2023/6/13 22:15
 import json
+import os
+import sys
 
 from genson import SchemaBuilder
 from jsonschema.validators import validate
@@ -37,8 +39,11 @@ class SchemaUtil:
 
     @classmethod
     def schema_validate_file(cls, file, obj):
+        print(os.path.abspath(file))
+        # 路径优化
+        print(os.path.join(os.path.dirname(os.path.abspath(__file__)), file))
         # 从文件中获取schema数据
-        with open(file, "r") as f:
+        with open(os.path.join(os.path.dirname(os.path.abspath(__file__)), file), "r") as f:
             schema = json.load(f)
         return cls.schema_validate(obj, schema)
 
