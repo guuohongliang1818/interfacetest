@@ -1,5 +1,7 @@
 # 姓名：郭宏亮
 # 时间：2023/6/14 21:48
+import os
+
 import jsonpath
 import pytest
 
@@ -67,3 +69,8 @@ class TestGoodsApi:
 
     def test_delete(self):
         self.goods_api.delete(1436786)
+
+    def test_get_env(self):
+        assert os.getenv("litemall_env") == "test"
+        print("java", os.getenv("JAVA_HOME"))
+        print(os.getenv("litemall_env"))

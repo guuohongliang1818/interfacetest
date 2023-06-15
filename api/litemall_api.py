@@ -5,12 +5,19 @@ import os
 import jsonpath
 import requests
 
+from config.get_env import GetEnv
+
 
 class LiteMallApi:
-    _base_url = "https://litemall.hogwarts.ceshiren.com/"
     _url_token = "admin/auth/login"
 
+    def __getenv__(self):
+        env_config = GetEnv.get_env()
+        self._base_url = jsonpath.jsonpath(env_config, "$..base_url")[0]
+
     def __init__(self):
+        self.__getenv__()
+        print("self._base_url：", self._base_url)
         r = requests.post(self._base_url + self._url_token,
                           json={"username": "hogwarts", "password": "test12345"})
         self.headers = {"X-Litemall-Admin-Token": jsonpath.jsonpath(r.json(), "$..token")[0]}
