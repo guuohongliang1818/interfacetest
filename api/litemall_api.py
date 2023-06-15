@@ -1,5 +1,7 @@
 # 姓名：郭宏亮
 # 时间：2023/6/14 21:35
+import os
+
 import jsonpath
 import requests
 
@@ -32,3 +34,4 @@ if __name__ == '__main__':
     print(bool(args.get("ssss")))
     args.get("headers").update({"age": 12})
     print(args.get("headers"))
+    print(os.getenv("litemall_env", default="test"))
