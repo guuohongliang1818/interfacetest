@@ -8,7 +8,7 @@ def test_json():
     r = requests.post("https://httpbin.ceshiren.com/post",
                       # params={"data": "urlData"},
                       json={"name": "郭宏亮", "age": 18})
-    print(type(r.text))
+    print(r.text)
     assert r.status_code == 200
     # r.json()，自动把响应体转成json
     print(r.json().get("url"))
