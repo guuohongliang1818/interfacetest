@@ -1,6 +1,8 @@
 import jsonpath
 import requests
 
+# http://shop-xo.hctestedu.com/
+# 华测账号和密码：15022195606，ghl627129
 data = {
     "accounts": "15022195606",
     "pwd": "ghl627129",
